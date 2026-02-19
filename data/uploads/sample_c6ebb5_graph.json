@@ -1,0 +1,1233 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "node_id": "ACC_A1",
+      "id": "ACC_A1"
+    },
+    {
+      "node_id": "ACC_A2",
+      "id": "ACC_A2"
+    },
+    {
+      "node_id": "ACC_A3",
+      "id": "ACC_A3"
+    },
+    {
+      "node_id": "ACC_B1",
+      "id": "ACC_B1"
+    },
+    {
+      "node_id": "ACC_B2",
+      "id": "ACC_B2"
+    },
+    {
+      "node_id": "ACC_B3",
+      "id": "ACC_B3"
+    },
+    {
+      "node_id": "ACC_B4",
+      "id": "ACC_B4"
+    },
+    {
+      "node_id": "ACC_C1",
+      "id": "ACC_C1"
+    },
+    {
+      "node_id": "ACC_C2",
+      "id": "ACC_C2"
+    },
+    {
+      "node_id": "ACC_C3",
+      "id": "ACC_C3"
+    },
+    {
+      "node_id": "ACC_C4",
+      "id": "ACC_C4"
+    },
+    {
+      "node_id": "ACC_C5",
+      "id": "ACC_C5"
+    },
+    {
+      "node_id": "ACC_SMI_0",
+      "id": "ACC_SMI_0"
+    },
+    {
+      "node_id": "ACC_SMURF_IN",
+      "id": "ACC_SMURF_IN"
+    },
+    {
+      "node_id": "ACC_SMI_1",
+      "id": "ACC_SMI_1"
+    },
+    {
+      "node_id": "ACC_SMI_2",
+      "id": "ACC_SMI_2"
+    },
+    {
+      "node_id": "ACC_SMI_3",
+      "id": "ACC_SMI_3"
+    },
+    {
+      "node_id": "ACC_SMI_4",
+      "id": "ACC_SMI_4"
+    },
+    {
+      "node_id": "ACC_SMI_5",
+      "id": "ACC_SMI_5"
+    },
+    {
+      "node_id": "ACC_SMI_6",
+      "id": "ACC_SMI_6"
+    },
+    {
+      "node_id": "ACC_SMI_7",
+      "id": "ACC_SMI_7"
+    },
+    {
+      "node_id": "ACC_SMI_8",
+      "id": "ACC_SMI_8"
+    },
+    {
+      "node_id": "ACC_SMI_9",
+      "id": "ACC_SMI_9"
+    },
+    {
+      "node_id": "ACC_SMI_10",
+      "id": "ACC_SMI_10"
+    },
+    {
+      "node_id": "ACC_SMI_11",
+      "id": "ACC_SMI_11"
+    },
+    {
+      "node_id": "ACC_SMURF_OUT",
+      "id": "ACC_SMURF_OUT"
+    },
+    {
+      "node_id": "ACC_SMO_0",
+      "id": "ACC_SMO_0"
+    },
+    {
+      "node_id": "ACC_SMO_1",
+      "id": "ACC_SMO_1"
+    },
+    {
+      "node_id": "ACC_SMO_2",
+      "id": "ACC_SMO_2"
+    },
+    {
+      "node_id": "ACC_SMO_3",
+      "id": "ACC_SMO_3"
+    },
+    {
+      "node_id": "ACC_SMO_4",
+      "id": "ACC_SMO_4"
+    },
+    {
+      "node_id": "ACC_SMO_5",
+      "id": "ACC_SMO_5"
+    },
+    {
+      "node_id": "ACC_SMO_6",
+      "id": "ACC_SMO_6"
+    },
+    {
+      "node_id": "ACC_SMO_7",
+      "id": "ACC_SMO_7"
+    },
+    {
+      "node_id": "ACC_SMO_8",
+      "id": "ACC_SMO_8"
+    },
+    {
+      "node_id": "ACC_SMO_9",
+      "id": "ACC_SMO_9"
+    },
+    {
+      "node_id": "ACC_SMO_10",
+      "id": "ACC_SMO_10"
+    },
+    {
+      "node_id": "ACC_SMO_11",
+      "id": "ACC_SMO_11"
+    },
+    {
+      "node_id": "ACC_START",
+      "id": "ACC_START"
+    },
+    {
+      "node_id": "ACC_SH1",
+      "id": "ACC_SH1"
+    },
+    {
+      "node_id": "ACC_SH2",
+      "id": "ACC_SH2"
+    },
+    {
+      "node_id": "ACC_SH3",
+      "id": "ACC_SH3"
+    },
+    {
+      "node_id": "ACC_END",
+      "id": "ACC_END"
+    },
+    {
+      "node_id": "ACC_N5",
+      "id": "ACC_N5"
+    },
+    {
+      "node_id": "ACC_N20",
+      "id": "ACC_N20"
+    },
+    {
+      "node_id": "ACC_N16",
+      "id": "ACC_N16"
+    },
+    {
+      "node_id": "ACC_N27",
+      "id": "ACC_N27"
+    },
+    {
+      "node_id": "ACC_N13",
+      "id": "ACC_N13"
+    },
+    {
+      "node_id": "ACC_N4",
+      "id": "ACC_N4"
+    },
+    {
+      "node_id": "ACC_N25",
+      "id": "ACC_N25"
+    },
+    {
+      "node_id": "ACC_N8",
+      "id": "ACC_N8"
+    },
+    {
+      "node_id": "ACC_N32",
+      "id": "ACC_N32"
+    },
+    {
+      "node_id": "ACC_N29",
+      "id": "ACC_N29"
+    },
+    {
+      "node_id": "ACC_N26",
+      "id": "ACC_N26"
+    },
+    {
+      "node_id": "ACC_N38",
+      "id": "ACC_N38"
+    },
+    {
+      "node_id": "ACC_N6",
+      "id": "ACC_N6"
+    },
+    {
+      "node_id": "ACC_N30",
+      "id": "ACC_N30"
+    },
+    {
+      "node_id": "ACC_N24",
+      "id": "ACC_N24"
+    },
+    {
+      "node_id": "ACC_N11",
+      "id": "ACC_N11"
+    },
+    {
+      "node_id": "ACC_N12",
+      "id": "ACC_N12"
+    },
+    {
+      "node_id": "ACC_N28",
+      "id": "ACC_N28"
+    },
+    {
+      "node_id": "ACC_N18",
+      "id": "ACC_N18"
+    },
+    {
+      "node_id": "ACC_N34",
+      "id": "ACC_N34"
+    },
+    {
+      "node_id": "ACC_N14",
+      "id": "ACC_N14"
+    },
+    {
+      "node_id": "ACC_N0",
+      "id": "ACC_N0"
+    },
+    {
+      "node_id": "ACC_N10",
+      "id": "ACC_N10"
+    },
+    {
+      "node_id": "ACC_N1",
+      "id": "ACC_N1"
+    },
+    {
+      "node_id": "ACC_N19",
+      "id": "ACC_N19"
+    },
+    {
+      "node_id": "ACC_N9",
+      "id": "ACC_N9"
+    },
+    {
+      "node_id": "ACC_N7",
+      "id": "ACC_N7"
+    },
+    {
+      "node_id": "ACC_N15",
+      "id": "ACC_N15"
+    },
+    {
+      "node_id": "ACC_N21",
+      "id": "ACC_N21"
+    },
+    {
+      "node_id": "ACC_N2",
+      "id": "ACC_N2"
+    },
+    {
+      "node_id": "ACC_N3",
+      "id": "ACC_N3"
+    },
+    {
+      "node_id": "ACC_N31",
+      "id": "ACC_N31"
+    },
+    {
+      "node_id": "ACC_N36",
+      "id": "ACC_N36"
+    },
+    {
+      "node_id": "ACC_N23",
+      "id": "ACC_N23"
+    },
+    {
+      "node_id": "ACC_N17",
+      "id": "ACC_N17"
+    },
+    {
+      "node_id": "ACC_N39",
+      "id": "ACC_N39"
+    },
+    {
+      "node_id": "ACC_N22",
+      "id": "ACC_N22"
+    },
+    {
+      "node_id": "ACC_N37",
+      "id": "ACC_N37"
+    }
+  ],
+  "links": [
+    {
+      "transaction_id": "T00001",
+      "amount": 1024.71,
+      "timestamp": "2024-01-01 09:00:00",
+      "direction": "ACC_A1 -> ACC_A2",
+      "source": "ACC_A1",
+      "target": "ACC_A2",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00002",
+      "amount": 1136.6,
+      "timestamp": "2024-01-01 10:00:00",
+      "direction": "ACC_A2 -> ACC_A3",
+      "source": "ACC_A2",
+      "target": "ACC_A3",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00003",
+      "amount": 1222.54,
+      "timestamp": "2024-01-01 11:00:00",
+      "direction": "ACC_A3 -> ACC_A1",
+      "source": "ACC_A3",
+      "target": "ACC_A1",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00004",
+      "amount": 1672.65,
+      "timestamp": "2024-01-01 09:00:00",
+      "direction": "ACC_B1 -> ACC_B2",
+      "source": "ACC_B1",
+      "target": "ACC_B2",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00005",
+      "amount": 1348.06,
+      "timestamp": "2024-01-01 10:00:00",
+      "direction": "ACC_B2 -> ACC_B3",
+      "source": "ACC_B2",
+      "target": "ACC_B3",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00006",
+      "amount": 1768.41,
+      "timestamp": "2024-01-01 11:00:00",
+      "direction": "ACC_B3 -> ACC_B4",
+      "source": "ACC_B3",
+      "target": "ACC_B4",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00007",
+      "amount": 1683.54,
+      "timestamp": "2024-01-01 12:00:00",
+      "direction": "ACC_B4 -> ACC_B1",
+      "source": "ACC_B4",
+      "target": "ACC_B1",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00008",
+      "amount": 1348.98,
+      "timestamp": "2024-01-01 09:00:00",
+      "direction": "ACC_C1 -> ACC_C2",
+      "source": "ACC_C1",
+      "target": "ACC_C2",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00009",
+      "amount": 1118.03,
+      "timestamp": "2024-01-01 10:00:00",
+      "direction": "ACC_C2 -> ACC_C3",
+      "source": "ACC_C2",
+      "target": "ACC_C3",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00010",
+      "amount": 1006.07,
+      "timestamp": "2024-01-01 11:00:00",
+      "direction": "ACC_C3 -> ACC_C4",
+      "source": "ACC_C3",
+      "target": "ACC_C4",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00011",
+      "amount": 1117.7,
+      "timestamp": "2024-01-01 12:00:00",
+      "direction": "ACC_C4 -> ACC_C5",
+      "source": "ACC_C4",
+      "target": "ACC_C5",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00012",
+      "amount": 1800.33,
+      "timestamp": "2024-01-01 13:00:00",
+      "direction": "ACC_C5 -> ACC_C1",
+      "source": "ACC_C5",
+      "target": "ACC_C1",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00013",
+      "amount": 104.95,
+      "timestamp": "2024-01-02 11:00:00",
+      "direction": "ACC_SMI_0 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_0",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00014",
+      "amount": 129.32,
+      "timestamp": "2024-01-01 20:00:00",
+      "direction": "ACC_SMI_1 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_1",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00015",
+      "amount": 106.06,
+      "timestamp": "2024-01-03 01:00:00",
+      "direction": "ACC_SMI_2 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_2",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00016",
+      "amount": 148.55,
+      "timestamp": "2024-01-03 04:00:00",
+      "direction": "ACC_SMI_3 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_3",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00017",
+      "amount": 130.77,
+      "timestamp": "2024-01-02 02:00:00",
+      "direction": "ACC_SMI_4 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_4",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00018",
+      "amount": 80.02,
+      "timestamp": "2024-01-01 21:00:00",
+      "direction": "ACC_SMI_5 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_5",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00019",
+      "amount": 90.75,
+      "timestamp": "2024-01-02 08:00:00",
+      "direction": "ACC_SMI_6 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_6",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00020",
+      "amount": 52.68,
+      "timestamp": "2024-01-01 12:00:00",
+      "direction": "ACC_SMI_7 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_7",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00021",
+      "amount": 138.06,
+      "timestamp": "2024-01-02 20:00:00",
+      "direction": "ACC_SMI_8 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_8",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00022",
+      "amount": 133.72,
+      "timestamp": "2024-01-03 02:00:00",
+      "direction": "ACC_SMI_9 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_9",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00023",
+      "amount": 77.52,
+      "timestamp": "2024-01-02 13:00:00",
+      "direction": "ACC_SMI_10 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_10",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00024",
+      "amount": 81.55,
+      "timestamp": "2024-01-03 06:00:00",
+      "direction": "ACC_SMI_11 -> ACC_SMURF_IN",
+      "source": "ACC_SMI_11",
+      "target": "ACC_SMURF_IN",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00025",
+      "amount": 131.01,
+      "timestamp": "2024-01-01 21:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_0",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_0",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00026",
+      "amount": 147.15,
+      "timestamp": "2024-01-02 10:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_1",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_1",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00027",
+      "amount": 113.21,
+      "timestamp": "2024-01-03 09:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_2",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_2",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00028",
+      "amount": 117.27,
+      "timestamp": "2024-01-02 07:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_3",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_3",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00029",
+      "amount": 128.38,
+      "timestamp": "2024-01-02 17:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_4",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_4",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00030",
+      "amount": 56.03,
+      "timestamp": "2024-01-01 21:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_5",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_5",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00031",
+      "amount": 120.1,
+      "timestamp": "2024-01-03 07:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_6",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_6",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00032",
+      "amount": 83.32,
+      "timestamp": "2024-01-01 23:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_7",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_7",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00033",
+      "amount": 146.42,
+      "timestamp": "2024-01-01 13:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_8",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_8",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00034",
+      "amount": 55.75,
+      "timestamp": "2024-01-01 22:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_9",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_9",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00035",
+      "amount": 52.82,
+      "timestamp": "2024-01-02 14:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_10",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_10",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00036",
+      "amount": 138.3,
+      "timestamp": "2024-01-01 10:00:00",
+      "direction": "ACC_SMURF_OUT -> ACC_SMO_11",
+      "source": "ACC_SMURF_OUT",
+      "target": "ACC_SMO_11",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00037",
+      "amount": 558.71,
+      "timestamp": "2024-01-03 09:00:00",
+      "direction": "ACC_START -> ACC_SH1",
+      "source": "ACC_START",
+      "target": "ACC_SH1",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00038",
+      "amount": 787.64,
+      "timestamp": "2024-01-03 10:00:00",
+      "direction": "ACC_SH1 -> ACC_SH2",
+      "source": "ACC_SH1",
+      "target": "ACC_SH2",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00039",
+      "amount": 743.95,
+      "timestamp": "2024-01-03 11:00:00",
+      "direction": "ACC_SH2 -> ACC_SH3",
+      "source": "ACC_SH2",
+      "target": "ACC_SH3",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00040",
+      "amount": 645.87,
+      "timestamp": "2024-01-03 12:00:00",
+      "direction": "ACC_SH3 -> ACC_END",
+      "source": "ACC_SH3",
+      "target": "ACC_END",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00041",
+      "amount": 2590.88,
+      "timestamp": "2024-01-04 16:00:00",
+      "direction": "ACC_N5 -> ACC_N20",
+      "source": "ACC_N5",
+      "target": "ACC_N20",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00042",
+      "amount": 4101.89,
+      "timestamp": "2024-01-06 09:00:00",
+      "direction": "ACC_N20 -> ACC_N16",
+      "source": "ACC_N20",
+      "target": "ACC_N16",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00050",
+      "amount": 3565.28,
+      "timestamp": "2024-01-09 11:00:00",
+      "direction": "ACC_N16 -> ACC_N30",
+      "source": "ACC_N16",
+      "target": "ACC_N30",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00075",
+      "amount": 2031.46,
+      "timestamp": "2024-01-06 05:00:00",
+      "direction": "ACC_N16 -> ACC_N28",
+      "source": "ACC_N16",
+      "target": "ACC_N28",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00078",
+      "amount": 533.38,
+      "timestamp": "2024-01-12 07:00:00",
+      "direction": "ACC_N16 -> ACC_N0",
+      "source": "ACC_N16",
+      "target": "ACC_N0",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00043",
+      "amount": 1291.86,
+      "timestamp": "2024-01-12 00:00:00",
+      "direction": "ACC_N27 -> ACC_N13",
+      "source": "ACC_N27",
+      "target": "ACC_N13",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00054",
+      "amount": 953.46,
+      "timestamp": "2024-01-04 02:00:00",
+      "direction": "ACC_N27 -> ACC_N25",
+      "source": "ACC_N27",
+      "target": "ACC_N25",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00059",
+      "amount": 2200.04,
+      "timestamp": "2024-01-09 04:00:00",
+      "direction": "ACC_N13 -> ACC_N14",
+      "source": "ACC_N13",
+      "target": "ACC_N14",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00044",
+      "amount": 1883.03,
+      "timestamp": "2024-01-07 10:00:00",
+      "direction": "ACC_N4 -> ACC_N25",
+      "source": "ACC_N4",
+      "target": "ACC_N25",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00068",
+      "amount": 4224.68,
+      "timestamp": "2024-01-03 01:00:00",
+      "direction": "ACC_N4 -> ACC_N7",
+      "source": "ACC_N4",
+      "target": "ACC_N7",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00070",
+      "amount": 928.12,
+      "timestamp": "2024-01-09 09:00:00",
+      "direction": "ACC_N4 -> ACC_N9",
+      "source": "ACC_N4",
+      "target": "ACC_N9",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00051",
+      "amount": 4608.93,
+      "timestamp": "2024-01-10 21:00:00",
+      "direction": "ACC_N25 -> ACC_N11",
+      "source": "ACC_N25",
+      "target": "ACC_N11",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00093",
+      "amount": 4708.79,
+      "timestamp": "2024-01-03 16:00:00",
+      "direction": "ACC_N25 -> ACC_N0",
+      "source": "ACC_N25",
+      "target": "ACC_N0",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00045",
+      "amount": 4190.12,
+      "timestamp": "2024-01-11 00:00:00",
+      "direction": "ACC_N8 -> ACC_N25",
+      "source": "ACC_N8",
+      "target": "ACC_N25",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00046",
+      "amount": 2067.24,
+      "timestamp": "2024-01-03 14:00:00",
+      "direction": "ACC_N32 -> ACC_N20",
+      "source": "ACC_N32",
+      "target": "ACC_N20",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00061",
+      "amount": 246.29,
+      "timestamp": "2024-01-05 19:00:00",
+      "direction": "ACC_N32 -> ACC_N0",
+      "source": "ACC_N32",
+      "target": "ACC_N0",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00091",
+      "amount": 3634.22,
+      "timestamp": "2024-01-02 17:00:00",
+      "direction": "ACC_N32 -> ACC_N16",
+      "source": "ACC_N32",
+      "target": "ACC_N16",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00100",
+      "amount": 1361.22,
+      "timestamp": "2024-01-10 15:00:00",
+      "direction": "ACC_N32 -> ACC_N7",
+      "source": "ACC_N32",
+      "target": "ACC_N7",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00047",
+      "amount": 2923.17,
+      "timestamp": "2024-01-11 06:00:00",
+      "direction": "ACC_N29 -> ACC_N26",
+      "source": "ACC_N29",
+      "target": "ACC_N26",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00057",
+      "amount": 2962.11,
+      "timestamp": "2024-01-08 17:00:00",
+      "direction": "ACC_N26 -> ACC_N27",
+      "source": "ACC_N26",
+      "target": "ACC_N27",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00048",
+      "amount": 1971.15,
+      "timestamp": "2024-01-06 08:00:00",
+      "direction": "ACC_N38 -> ACC_N6",
+      "source": "ACC_N38",
+      "target": "ACC_N6",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00065",
+      "amount": 3945.12,
+      "timestamp": "2024-01-02 22:00:00",
+      "direction": "ACC_N38 -> ACC_N19",
+      "source": "ACC_N38",
+      "target": "ACC_N19",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00067",
+      "amount": 481.5,
+      "timestamp": "2024-01-04 06:00:00",
+      "direction": "ACC_N38 -> ACC_N30",
+      "source": "ACC_N38",
+      "target": "ACC_N30",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00049",
+      "amount": 3875.11,
+      "timestamp": "2024-01-09 02:00:00",
+      "direction": "ACC_N30 -> ACC_N24",
+      "source": "ACC_N30",
+      "target": "ACC_N24",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00058",
+      "amount": 1981.67,
+      "timestamp": "2024-01-09 09:00:00",
+      "direction": "ACC_N24 -> ACC_N13",
+      "source": "ACC_N24",
+      "target": "ACC_N13",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00060",
+      "amount": 3757.48,
+      "timestamp": "2024-01-08 12:00:00",
+      "direction": "ACC_N24 -> ACC_N25",
+      "source": "ACC_N24",
+      "target": "ACC_N25",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00089",
+      "amount": 2148.12,
+      "timestamp": "2024-01-03 22:00:00",
+      "direction": "ACC_N24 -> ACC_N22",
+      "source": "ACC_N24",
+      "target": "ACC_N22",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00052",
+      "amount": 3794.73,
+      "timestamp": "2024-01-10 04:00:00",
+      "direction": "ACC_N12 -> ACC_N29",
+      "source": "ACC_N12",
+      "target": "ACC_N29",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00071",
+      "amount": 1513.51,
+      "timestamp": "2024-01-10 22:00:00",
+      "direction": "ACC_N12 -> ACC_N5",
+      "source": "ACC_N12",
+      "target": "ACC_N5",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00084",
+      "amount": 2776.97,
+      "timestamp": "2024-01-06 23:00:00",
+      "direction": "ACC_N12 -> ACC_N36",
+      "source": "ACC_N12",
+      "target": "ACC_N36",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00087",
+      "amount": 240.09,
+      "timestamp": "2024-01-04 16:00:00",
+      "direction": "ACC_N12 -> ACC_N20",
+      "source": "ACC_N12",
+      "target": "ACC_N20",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00053",
+      "amount": 670.61,
+      "timestamp": "2024-01-01 09:00:00",
+      "direction": "ACC_N28 -> ACC_N26",
+      "source": "ACC_N28",
+      "target": "ACC_N26",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00055",
+      "amount": 670.85,
+      "timestamp": "2024-01-08 06:00:00",
+      "direction": "ACC_N18 -> ACC_N38",
+      "source": "ACC_N18",
+      "target": "ACC_N38",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00063",
+      "amount": 274.8,
+      "timestamp": "2024-01-07 23:00:00",
+      "direction": "ACC_N18 -> ACC_N25",
+      "source": "ACC_N18",
+      "target": "ACC_N25",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00082",
+      "amount": 2934.45,
+      "timestamp": "2024-01-05 12:00:00",
+      "direction": "ACC_N18 -> ACC_N6",
+      "source": "ACC_N18",
+      "target": "ACC_N6",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00083",
+      "amount": 728.96,
+      "timestamp": "2024-01-08 05:00:00",
+      "direction": "ACC_N18 -> ACC_N32",
+      "source": "ACC_N18",
+      "target": "ACC_N32",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00096",
+      "amount": 2060.44,
+      "timestamp": "2024-01-05 09:00:00",
+      "direction": "ACC_N18 -> ACC_N0",
+      "source": "ACC_N18",
+      "target": "ACC_N0",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00056",
+      "amount": 1944.51,
+      "timestamp": "2024-01-04 15:00:00",
+      "direction": "ACC_N34 -> ACC_N18",
+      "source": "ACC_N34",
+      "target": "ACC_N18",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00077",
+      "amount": 2738.23,
+      "timestamp": "2024-01-08 13:00:00",
+      "direction": "ACC_N34 -> ACC_N21",
+      "source": "ACC_N34",
+      "target": "ACC_N21",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00094",
+      "amount": 1246.64,
+      "timestamp": "2024-01-10 21:00:00",
+      "direction": "ACC_N34 -> ACC_N12",
+      "source": "ACC_N34",
+      "target": "ACC_N12",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00062",
+      "amount": 1394.56,
+      "timestamp": "2024-01-02 02:00:00",
+      "direction": "ACC_N0 -> ACC_N10",
+      "source": "ACC_N0",
+      "target": "ACC_N10",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00073",
+      "amount": 4716.96,
+      "timestamp": "2024-01-03 11:00:00",
+      "direction": "ACC_N0 -> ACC_N30",
+      "source": "ACC_N0",
+      "target": "ACC_N30",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00074",
+      "amount": 3480.85,
+      "timestamp": "2024-01-02 05:00:00",
+      "direction": "ACC_N0 -> ACC_N21",
+      "source": "ACC_N0",
+      "target": "ACC_N21",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00069",
+      "amount": 727.78,
+      "timestamp": "2024-01-01 13:00:00",
+      "direction": "ACC_N10 -> ACC_N9",
+      "source": "ACC_N10",
+      "target": "ACC_N9",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00085",
+      "amount": 1046.96,
+      "timestamp": "2024-01-02 04:00:00",
+      "direction": "ACC_N10 -> ACC_N23",
+      "source": "ACC_N10",
+      "target": "ACC_N23",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00064",
+      "amount": 2160.48,
+      "timestamp": "2024-01-06 22:00:00",
+      "direction": "ACC_N1 -> ACC_N32",
+      "source": "ACC_N1",
+      "target": "ACC_N32",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00099",
+      "amount": 4156.52,
+      "timestamp": "2024-01-10 16:00:00",
+      "direction": "ACC_N1 -> ACC_N10",
+      "source": "ACC_N1",
+      "target": "ACC_N10",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00072",
+      "amount": 1953.67,
+      "timestamp": "2024-01-04 22:00:00",
+      "direction": "ACC_N19 -> ACC_N15",
+      "source": "ACC_N19",
+      "target": "ACC_N15",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00066",
+      "amount": 4967.45,
+      "timestamp": "2024-01-10 08:00:00",
+      "direction": "ACC_N9 -> ACC_N20",
+      "source": "ACC_N9",
+      "target": "ACC_N20",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00076",
+      "amount": 3999.33,
+      "timestamp": "2024-01-11 14:00:00",
+      "direction": "ACC_N7 -> ACC_N2",
+      "source": "ACC_N7",
+      "target": "ACC_N2",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00090",
+      "amount": 1053.2,
+      "timestamp": "2024-01-06 20:00:00",
+      "direction": "ACC_N7 -> ACC_N13",
+      "source": "ACC_N7",
+      "target": "ACC_N13",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00092",
+      "amount": 2734.1,
+      "timestamp": "2024-01-10 13:00:00",
+      "direction": "ACC_N7 -> ACC_N11",
+      "source": "ACC_N7",
+      "target": "ACC_N11",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00079",
+      "amount": 4534.85,
+      "timestamp": "2024-01-05 22:00:00",
+      "direction": "ACC_N2 -> ACC_N28",
+      "source": "ACC_N2",
+      "target": "ACC_N28",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00097",
+      "amount": 1601.51,
+      "timestamp": "2024-01-04 23:00:00",
+      "direction": "ACC_N2 -> ACC_N24",
+      "source": "ACC_N2",
+      "target": "ACC_N24",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00080",
+      "amount": 1661.59,
+      "timestamp": "2024-01-02 21:00:00",
+      "direction": "ACC_N3 -> ACC_N15",
+      "source": "ACC_N3",
+      "target": "ACC_N15",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00081",
+      "amount": 1929.79,
+      "timestamp": "2024-01-11 18:00:00",
+      "direction": "ACC_N31 -> ACC_N9",
+      "source": "ACC_N31",
+      "target": "ACC_N9",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00086",
+      "amount": 3384.74,
+      "timestamp": "2024-01-11 11:00:00",
+      "direction": "ACC_N17 -> ACC_N4",
+      "source": "ACC_N17",
+      "target": "ACC_N4",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00088",
+      "amount": 1104.5,
+      "timestamp": "2024-01-02 00:00:00",
+      "direction": "ACC_N39 -> ACC_N3",
+      "source": "ACC_N39",
+      "target": "ACC_N3",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00095",
+      "amount": 816.68,
+      "timestamp": "2024-01-09 15:00:00",
+      "direction": "ACC_N37 -> ACC_N1",
+      "source": "ACC_N37",
+      "target": "ACC_N1",
+      "key": 0
+    },
+    {
+      "transaction_id": "T00098",
+      "amount": 1368.01,
+      "timestamp": "2024-01-03 00:00:00",
+      "direction": "ACC_N37 -> ACC_N13",
+      "source": "ACC_N37",
+      "target": "ACC_N13",
+      "key": 0
+    }
+  ]
+}
