@@ -8,7 +8,7 @@ import { AlertCircle, Download, BarChart3, Users, Network, Clock, Shield, Chevro
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || (typeof window !== "undefined" ? `${window.location.protocol}//${window.location.hostname}:8000` : "http://localhost:8000")
 
 // Dynamically import GraphVisualizer (it uses D3 which requires browser APIs)
 const GraphVisualizer = dynamic(
@@ -89,19 +89,22 @@ function ResultsContent() {
     if (!resultId) return
     setIsDownloading(true)
     try {
-      const res = await fetch(`${API_BASE}/api/download/${resultId}`)
-      if (!res.ok) throw new Error("Download failed")
-      const blob = await res.blob()
-      const url = URL.createObjectURL(blob)
+      const response = await fetch(`${API_BASE}/api/download/${resultId}`)
+      if (!response.ok) throw new Error("Download failed")
+      
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
       const a = document.createElement("a")
+      a.style.display = "none"
       a.href = url
       a.download = `fingraphix_report_${resultId}.json`
       document.body.appendChild(a)
       a.click()
-      a.remove()
-      URL.revokeObjectURL(url)
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
     } catch (err) {
       console.error("Download error:", err)
+      alert("Failed to download report")
     } finally {
       setIsDownloading(false)
     }
@@ -128,11 +131,11 @@ function ResultsContent() {
   const displayedAccounts = showAllAccounts ? suspicious_accounts : suspicious_accounts.slice(0, 10)
 
   return (
-    <div className="min-h-screen animate-in fade-in duration-500" style={{ background: "#050505" }}>
+    <div className="min-h-screen animate-in fade-in duration-500 pt-24" style={{ background: "#050505" }}>
 
       {/* ─── Top bar ─── */}
-      <div className="sticky top-0 z-30" style={{ background: "rgba(5,5,5,0.85)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="container mx-auto flex items-center justify-between h-14 px-4 pt-14">
+      <div className="sticky top-20 z-30 mb-8" style={{ background: "rgba(5,5,5,0.85)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="container mx-auto flex items-center justify-between h-14 px-4">
           <div className="flex items-center gap-3">
             <div className="h-2.5 w-2.5 rounded-full" style={{ background: "#22c55e", boxShadow: "0 0 8px #22c55e" }} />
             <span className="text-sm font-medium" style={{ color: "#e0f0ff" }}>Analysis Complete</span>
@@ -153,7 +156,7 @@ function ResultsContent() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 space-y-8">
+      <div className="container mx-auto px-4 pb-16 space-y-8">
 
         {/* ─── Summary cards ─── */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -198,7 +201,7 @@ function ResultsContent() {
           </div>
         </div>
 
-        {/* ─── Fraud Rings ─── */}
+        {/* ─── Fraud Rings Table ─── */}
         <div>
           <div className="flex items-center gap-3 mb-4">
             <h2 className="text-xl font-semibold" style={{ color: "#f0f0f0" }}>Detected Fraud Rings</h2>
@@ -207,52 +210,68 @@ function ResultsContent() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {fraud_rings.map((ring: any, idx: number) => {
-              const col = RING_PALETTE[idx % RING_PALETTE.length]
-              return (
-                <div
-                  key={ring.ring_id}
-                  className="rounded-xl p-5"
-                  style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: `1px solid ${col}33`,
-                    borderLeft: `3px solid ${col}`,
-                  }}
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-bold text-sm" style={{ color: col }}>{ring.ring_id}</span>
-                    {riskBadge(ring.risk_level || (ring.risk_score >= 80 ? "CRITICAL" : ring.risk_score >= 60 ? "HIGH" : "MEDIUM"))}
-                  </div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Pattern</span>
-                    <span className="text-xs font-medium" style={{ color: "#e0f0ff" }}>
-                      {ring.pattern_type.replace(/_/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase())}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Risk Score</span>
-                    <span className="text-sm font-bold" style={{ color: col }}>{ring.risk_score.toFixed(1)}</span>
-                  </div>
-                  <div>
-                    <span className="text-xs block mb-1.5" style={{ color: "rgba(255,255,255,0.4)" }}>
-                      Members ({ring.member_accounts.length})
-                    </span>
-                    <div className="flex flex-wrap gap-1">
-                      {ring.member_accounts.map((acc: string) => (
-                        <span
-                          key={acc}
-                          className="text-[10px] px-1.5 py-0.5 rounded"
-                          style={{ background: `${col}15`, color: col, border: `1px solid ${col}30` }}
-                        >
-                          {acc}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+          <div
+            className="rounded-xl overflow-hidden"
+            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
+          >
+            <table className="w-full">
+              <thead>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                  <th className="text-left px-5 py-3 text-xs font-medium uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>Ring ID</th>
+                  <th className="text-left px-5 py-3 text-xs font-medium uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>Pattern Type</th>
+                  <th className="text-center px-5 py-3 text-xs font-medium uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>Members</th>
+                  <th className="text-right px-5 py-3 text-xs font-medium uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>Risk Score</th>
+                  <th className="text-left px-5 py-3 text-xs font-medium uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>Member Accounts</th>
+                </tr>
+              </thead>
+              <tbody>
+                {fraud_rings.length === 0 ? (
+                   <tr>
+                     <td colSpan={5} className="px-5 py-8 text-center text-muted-foreground">No fraud rings detected.</td>
+                   </tr>
+                ) : (
+                  fraud_rings.map((ring: any, idx: number) => {
+                    const col = RING_PALETTE[idx % RING_PALETTE.length]
+                    return (
+                      <tr
+                        key={ring.ring_id}
+                        className="hover:bg-white/[0.02] transition-colors"
+                        style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+                      >
+                         <td className="px-5 py-3 font-bold text-sm" style={{ color: col }}>
+                           {ring.ring_id}
+                         </td>
+                         <td className="px-5 py-3 text-sm font-medium" style={{ color: "#e0f0ff" }}>
+                           {ring.pattern_type.replace(/_/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase())}
+                         </td>
+                         <td className="px-5 py-3 text-center text-sm" style={{ color: "#e0f0ff" }}>
+                           {ring.member_accounts.length}
+                         </td>
+                         <td className="px-5 py-3 text-right">
+                           {riskBadge(ring.risk_level || (ring.risk_score >= 80 ? "CRITICAL" : ring.risk_score >= 60 ? "HIGH" : "MEDIUM"))}
+                           <div className="text-xs mt-1" style={{ color: col, fontWeight: "bold" }}>
+                             {ring.risk_score.toFixed(1)}
+                           </div>
+                         </td>
+                         <td className="px-5 py-3">
+                           <div className="flex flex-wrap gap-1">
+                            {ring.member_accounts.map((acc: string) => (
+                              <span
+                                key={acc}
+                                className="text-[10px] px-1.5 py-0.5 rounded"
+                                style={{ background: `${col}15`, color: col, border: `1px solid ${col}30` }}
+                              >
+                                {acc}
+                              </span>
+                            ))}
+                           </div>
+                         </td>
+                      </tr>
+                    )
+                  })
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
 

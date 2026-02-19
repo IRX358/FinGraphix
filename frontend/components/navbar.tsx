@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils"
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Results", href: "/results" },
-  { label: "History", href: "/history" },
 ]
 
 const SCROLL_THRESHOLD = 12

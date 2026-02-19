@@ -1,0 +1,36 @@
+# Data & Logs
+data/uploads/*
+data/output/*
+!data/uploads/.gitkeep
+!data/output/.gitkeep
+*.log
+detection_output.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+build/
+dist/
+*.spec
+
+# Node.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.env*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# IDEs & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
