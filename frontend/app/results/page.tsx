@@ -9,7 +9,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { RING_PALETTE } from "@/lib/constants"
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || (typeof window !== "undefined" ? `${window.location.protocol}//${window.location.hostname}:8000` : "http://localhost:8000")
+import { API_BASE } from "@/lib/config"
 
 // Dynamically import GraphVisualizer (it uses D3 which requires browser APIs)
 const GraphVisualizer = dynamic(

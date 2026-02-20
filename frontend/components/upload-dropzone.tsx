@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils"
 
 const MAX_SIZE_MB = 20
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
+import { API_BASE } from "@/lib/config"
 
 export function UploadDropzone() {
   const router = useRouter()

@@ -33,12 +33,13 @@ Render is excellent for hosting FastAPI applications.
 
 ### 4. Set Environment Variables
 - Click **Advanced** -> **Add Environment Variable**:
-  - `PYTHON_VERSION`: `3.10` (or higher)
-  - `ALLOWED_ORIGINS`: Set this to `*` initially, or ideally, your Vercel URL once you have it (e.g., `https://fingraphix.vercel.app`).
+  - `PYTHON_VERSION`: `3.11.6`
+  - `RENDER`: `true` (This triggers the engine to use `/tmp` for its storage "cache")
+  - `ALLOWED_ORIGINS`: Set this to your Vercel URL (e.g., `https://fingraphix.vercel.app`).
 
-### 5. Deploy
-- Click **Create Web Service**. 
-- **Note**: The Free tier "sleeps" after 15 minutes of inactivity. The first request after a sleep might take 30-60 seconds.
+### 5. Final Checks
+- **Health Check**: Visit your Render URL + `/api/health`. It should return `{"status": "healthy", ...}`.
+- **Statelessness**: Remember that results are cached in `/tmp`. If the server restarts, legacy results will be cleared.
 
 ---
 

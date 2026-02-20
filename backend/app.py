@@ -38,15 +38,28 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Paths
-DATA_DIR = PROJECT_ROOT / "data"
+# Paths — Use /tmp/fingraphix for stateless cloud storage (cache)
+# This prevents writing data into the repository directory
+if os.getenv("RENDER") or os.getenv("CLOUD_DEPLOY"):
+    DATA_DIR = Path("/tmp/fingraphix")
+else:
+    DATA_DIR = Path(os.getenv("DATA_DIR", PROJECT_ROOT / "data"))
+
 OUTPUT_DIR = DATA_DIR / "output"
 UPLOAD_DIR = DATA_DIR / "uploads"
+
+# Ensure directories exist
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 # In-memory result cache (result_id -> output dict)
 result_cache: dict[str, dict] = {}
+
+
+@app.get("/api/health")
+async def health():
+    """Health check for deployment."""
+    return {"status": "healthy", "uptime": time.time()}
 
 
 @app.post("/api/analyze")
@@ -213,4 +226,4 @@ async def analyze_sample():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="[IP_ADDRESS]", port=8000, reload=True)
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

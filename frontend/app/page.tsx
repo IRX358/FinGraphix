@@ -6,7 +6,7 @@ import { UploadDropzone } from "@/components/upload-dropzone"
 import { Button } from "@/components/ui/button"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
+import { API_BASE } from "@/lib/config"
 
 /* ---- Parallax hook ---- */
 function useParallax(speed: number) {

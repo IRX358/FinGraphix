@@ -4,7 +4,7 @@ import { useEffect, useState, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { FinancialLoading } from "@/components/financial-loading"
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
+import { API_BASE } from "@/lib/config"
 
 function ProcessingContent() {
   const router = useRouter()
