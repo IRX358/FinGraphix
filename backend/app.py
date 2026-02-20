@@ -58,9 +58,10 @@ result_cache: dict[str, dict] = {}
 # Find sample CSV — check multiple possible locations
 def _find_sample_csv() -> Path | None:
     candidates = [
-        PROJECT_ROOT / "data" / "transactions.csv",         # local dev
-        Path(__file__).resolve().parent / "data" / "transactions.csv",  # copied into backend/
-        Path("/opt/render/project/src/data/transactions.csv"),  # Render full clone
+        Path(__file__).resolve().parent / "transactions.csv",         # deployed with backend
+        PROJECT_ROOT / "data" / "transactions.csv",                   # local dev
+        Path("/opt/render/project/src/data/transactions.csv"),        # Render full clone
+        PROJECT_ROOT / "transactions.csv",                            # fallback
     ]
     for p in candidates:
         if p.exists():
@@ -68,9 +69,30 @@ def _find_sample_csv() -> Path | None:
     return None
 
 SAMPLE_CSV = _find_sample_csv()
-print(f"[FinGraphix] PROJECT_ROOT = {PROJECT_ROOT}")
-print(f"[FinGraphix] DATA_DIR     = {DATA_DIR}")
-print(f"[FinGraphix] SAMPLE_CSV   = {SAMPLE_CSV}")
+
+
+@app.get("/api/debug")
+async def debug_info():
+    """Returns debug info about file system and paths."""
+    try:
+        ls_root = os.listdir(PROJECT_ROOT)
+    except Exception as e:
+        ls_root = str(e)
+        
+    try:
+        ls_backend = os.listdir(Path(__file__).parent)
+    except Exception as e:
+        ls_backend = str(e)
+
+    return {
+        "project_root": str(PROJECT_ROOT),
+        "data_dir": str(DATA_DIR),
+        "sample_csv": str(SAMPLE_CSV),
+        "ls_project_root": ls_root,
+        "ls_backend": ls_backend,
+        "env_render": os.getenv("RENDER"),
+        "cwd": os.getcwd(),
+    }
 
 
 @app.get("/api/health")
@@ -100,6 +122,10 @@ async def analyze(file: UploadFile = File(...)):
         # Step 1: CSV → NetworkX graph JSON via togh.py
         graph_json_path = UPLOAD_DIR / f"{result_id}_graph.json"
         G = csv_to_graph(str(csv_path))
+        
+        if len(G.nodes) == 0:
+             raise HTTPException(status_code=400, detail="Analysis produced empty graph. Ensure CSV has required columns: transaction_id, sender_id, receiver_id, amount, timestamp")
+
         save_graph_json(G, str(graph_json_path))
 
         # Step 2: Load graph JSON and run engine
@@ -194,6 +220,8 @@ async def analyze_sample():
         # CSV → Graph
         graph_json_path = UPLOAD_DIR / f"{result_id}_graph.json"
         G = csv_to_graph(str(SAMPLE_CSV))
+        if len(G.nodes) == 0:
+             raise HTTPException(status_code=500, detail="Generated graph is empty (0 nodes). Check sample CSV format.")
         save_graph_json(G, str(graph_json_path))
 
         # Load and run engine
