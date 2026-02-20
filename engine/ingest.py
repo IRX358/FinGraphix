@@ -63,14 +63,17 @@ def ingest(raw_rows: list) -> tuple:
 
 def ingest_from_graph_json(json_data: dict) -> list:
     """
-    Converts NetworkX node-link JSON format (with 'nodes' and 'links' arrays)
+    Converts NetworkX node-link JSON format (with 'nodes' and 'links'/'edges' arrays)
     into the row-dict format expected by ingest().
 
-    The links in graph.json have: source, target, transaction_id, amount, timestamp, direction
-    We map them to: sender_id, receiver_id, transaction_id, amount, timestamp
+    NetworkX 2.x uses 'links', NetworkX 3.x uses 'edges' as the key.
+    We check both for compatibility.
     """
+    # NetworkX 3.x uses "edges", 2.x uses "links"
+    link_list = json_data.get("links", []) or json_data.get("edges", [])
+
     rows = []
-    for link in json_data.get("links", []):
+    for link in link_list:
         rows.append({
             "transaction_id": link.get("transaction_id", str(uuid4())),
             "sender_id": link["source"],
