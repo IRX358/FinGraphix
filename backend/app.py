@@ -218,21 +218,41 @@ async def analyze_sample():
 
     try:
         # CSV → Graph
+        trace = {}
         graph_json_path = UPLOAD_DIR / f"{result_id}_graph.json"
+        
+        # Explicit check for file existence before reading
+        if not SAMPLE_CSV.exists():
+             raise HTTPException(status_code=404, detail=f"Sample CSV missing at {SAMPLE_CSV}")
+
         G = csv_to_graph(str(SAMPLE_CSV))
+        trace["nodes_after_csv_to_graph"] = len(G.nodes)
+        
         if len(G.nodes) == 0:
              raise HTTPException(status_code=500, detail="Generated graph is empty (0 nodes). Check sample CSV format.")
+        
         save_graph_json(G, str(graph_json_path))
 
         # Load and run engine
         with open(graph_json_path, "r", encoding="utf-8") as f:
             graph_data = json.load(f)
+            
+        trace["nodes_in_json"] = len(graph_data.get("nodes", []))
+        link_key = "links" if "links" in graph_data else "edges"
+        trace["edges_in_json"] = len(graph_data.get(link_key, []))
+        
+        # Ensure correct key for pipeline
+        if "links" in graph_data and "edges" not in graph_data:
+             graph_data["edges"] = graph_data["links"]
 
         pipeline = DetectionPipeline()
         result = pipeline.run_from_graph_json(graph_data)
+        
+        trace["nodes_in_pipeline_graph"] = len(pipeline.graph.nodes) if hasattr(pipeline, "graph") else "unknown"
 
         output = {
             "result_id": result_id,
+            "trace": trace,
             "suspicious_accounts": [
                 {
                     "account_id": a.account_id,
@@ -260,11 +280,16 @@ async def analyze_sample():
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(output, f, indent=2)
 
+        # Cache result
         result_cache[result_id] = output
 
-        return JSONResponse(content={"result_id": result_id, "status": "complete"})
+        # Return full output + status so frontend redirects but debug sees trace
+        output["status"] = "complete"
+        return JSONResponse(content=output)
 
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
 
 
