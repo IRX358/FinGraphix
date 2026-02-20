@@ -80,8 +80,15 @@ Vercel is the natural home for Next.js apps.
 
 ---
 
-## ⚠️ Important Note on Data Storage
+## Troubleshooting
 
-Both Render (Free tier) and Vercel are **stateless**. 
-- Uploaded CSVs and output JSONs will be deleted whenever the service restarts or re-deploys.
-- This is fine for demonstrations. For a production system, you would need to connect a database (e.g., PostgreSQL) or cloud storage (e.g., Supabase, AWS S3) to persist analysis results.
+### 1. Vercel: Lockfile Mismatches
+We have removed `pnpm-lock.yaml` to ensure Vercel defaults to **`npm`**. 
+
+If you still see a lockfile error:
+- Ensure you have **deleted** `pnpm-lock.yaml` from your repository.
+- Vercel will then automatically use `npm install` and your `package-lock.json`.
+- In Vercel **Build & Development Settings**, you can explicitly set the **Install Command** to `npm install` if needed.
+
+### 2. Render: Build Errors (Maturin/Rust)
+Ensure `PYTHON_VERSION` is set to `3.11.6`. This forces Render to use pre-built packages (wheels) so it doesn't try to compile things from scratch using Rust.
