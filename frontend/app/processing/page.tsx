@@ -1,10 +1,10 @@
 "use client"
 
-import { useEffect } from "react"
+import { Suspense, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { FinancialLoading } from "@/components/financial-loading"
 
-export default function ProcessingPage() {
+function ProcessingContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const datasetId = searchParams.get("datasetId")
@@ -24,4 +24,12 @@ export default function ProcessingPage() {
   }, [datasetId, router])
 
   return <FinancialLoading />
+}
+
+export default function ProcessingPage() {
+  return (
+    <Suspense fallback={<FinancialLoading />}>
+      <ProcessingContent />
+    </Suspense>
+  )
 }
