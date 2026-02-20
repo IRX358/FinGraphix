@@ -141,7 +141,7 @@ export default function UploadPage() {
                 Financial Forensic Engine
               </h1>
               <p className="text-lg text-pretty" style={{ color: "rgba(255,255,255,0.55)" }}>
-                Upload financial data for instant forensic insights and guided exploration
+                Exposing hidden money mule networks
               </p>
             </div>
 

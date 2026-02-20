@@ -7,6 +7,7 @@ import { FinancialLoading } from "@/components/financial-loading"
 import { AlertCircle, Download, BarChart3, Users, Network, Clock, Shield, ChevronDown, ChevronUp } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { RING_PALETTE } from "@/lib/constants"
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || (typeof window !== "undefined" ? `${window.location.protocol}//${window.location.hostname}:8000` : "http://localhost:8000")
 
@@ -46,11 +47,14 @@ function patternBadge(p: string) {
   )
 }
 
-// ─── Ring palette (matches GraphVisualizer) ──────────────────────────────────
-const RING_PALETTE = [
-  "#ff3a5c", "#ff8c00", "#ffe600", "#00e5ff",
-  "#b300ff", "#00ff9d", "#ff00c8", "#39ff14",
-]
+
+
+
+function getSuspicionColor(score: number) {
+  if (score >= 80) return "#ff3a5c"; // Critical
+  if (score >= 60) return "#ff8c00"; // High
+  return "#ffe600"; // Medium
+}
 
 function ResultsContent() {
   const searchParams = useSearchParams()
@@ -134,7 +138,7 @@ function ResultsContent() {
     <div className="min-h-screen animate-in fade-in duration-500 pt-24" style={{ background: "#050505" }}>
 
       {/* ─── Top bar ─── */}
-      <div className="sticky top-20 z-30 mb-8" style={{ background: "rgba(5,5,5,0.85)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="sticky top-0 z-30 mb-8" style={{ background: "rgba(5,5,5,0.85)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container mx-auto flex items-center justify-between h-14 px-4">
           <div className="flex items-center gap-3">
             <div className="h-2.5 w-2.5 rounded-full" style={{ background: "#22c55e", boxShadow: "0 0 8px #22c55e" }} />
@@ -148,7 +152,7 @@ function ResultsContent() {
             disabled={isDownloading}
             size="sm"
             className="gap-2"
-            style={{ background: "rgba(34,197,94,0.15)", color: "#22c55e", border: "1px solid rgba(34,197,94,0.3)" }}
+            style={{ background: "rgba(34,197,94,0.15)",cursor: "pointer", color: "#22c55e", border: "1px solid rgba(34,197,94,0.3)"}}
           >
             <Download className="h-4 w-4" />
             {isDownloading ? "Downloading..." : "Download Report"}
@@ -254,26 +258,35 @@ function ResultsContent() {
                            </div>
                          </td>
                          <td className="px-5 py-3">
+                           {/* Show first 4 accounts, then +N more */}
                            <div className="flex flex-wrap gap-1">
-                            {ring.member_accounts.map((acc: string) => (
-                              <span
-                                key={acc}
-                                className="text-[10px] px-1.5 py-0.5 rounded"
-                                style={{ background: `${col}15`, color: col, border: `1px solid ${col}30` }}
-                              >
-                                {acc}
-                              </span>
-                            ))}
+                             {ring.member_accounts.slice(0, 4).map((acc: string) => (
+                               <span
+                                 key={acc}
+                                 className="text-[10px] px-1.5 py-0.5 rounded"
+                                 style={{ background: `${col}15`, color: col, border: `1px solid ${col}30` }}
+                               >
+                                 {acc}
+                               </span>
+                             ))}
+                             {ring.member_accounts.length > 4 && (
+                               <span
+                                 className="text-[10px] px-1.5 py-0.5 rounded font-medium"
+                                 style={{ background: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.7)", border: "1px solid rgba(255,255,255,0.2)" }}
+                               >
+                                 +{ring.member_accounts.length - 4} more
+                               </span>
+                             )}
                            </div>
                          </td>
-                      </tr>
-                    )
-                  })
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                   </tr>
+                 )
+               })
+             )}
+           </tbody>
+         </table>
+       </div>
+     </div>
 
         {/* ─── Suspicious Accounts Table ─── */}
         <div>
@@ -321,12 +334,12 @@ function ResultsContent() {
                             className="h-full rounded-full"
                             style={{
                               width: `${acc.suspicion_score}%`,
-                              background: acc.suspicion_score >= 80 ? "#ff3a5c" : acc.suspicion_score >= 60 ? "#ff8c00" : "#ffe600",
+                              background: getSuspicionColor(acc.suspicion_score),
                             }}
                           />
                         </div>
                         <span className="text-sm font-bold" style={{
-                          color: acc.suspicion_score >= 80 ? "#ff3a5c" : acc.suspicion_score >= 60 ? "#ff8c00" : "#ffe600",
+                          color: getSuspicionColor(acc.suspicion_score),
                         }}>
                           {acc.suspicion_score.toFixed(1)}
                         </span>

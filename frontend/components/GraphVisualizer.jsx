@@ -19,12 +19,10 @@
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import * as d3 from "d3";
+import { RING_PALETTE } from "@/lib/constants";
 
 // ─── Colour / Style constants ─────────────────────────────────────────────────
-const RING_PALETTE = [
-  "#ff3a5c", "#ff8c00", "#ffe600", "#00e5ff",
-  "#b300ff", "#00ff9d", "#ff00c8", "#39ff14",
-];
+
 
 const NODE_NORMAL      = { fill: "#1a2a3a", stroke: "#3a5a7a", r: 10 };
 const NODE_SUSPICIOUS  = { fill: "#1a0a0a", stroke: "#ff3a5c", r: 14 };

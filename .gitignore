@@ -1,16 +1,19 @@
-# Data & Logs
+# ─── Data & Generated Output ─────────────────────────────────────────────────
 data/uploads/*
 data/output/*
 !data/uploads/.gitkeep
 !data/output/.gitkeep
-*.log
 detection_output.json
+transactions_graph.json
+transactions.csv
 
-# Python
+# ─── Python ───────────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
 .env
+.env.local
 .venv
 env/
 venv/
@@ -18,19 +21,37 @@ ENV/
 build/
 dist/
 *.spec
+*.egg-info/
+.eggs/
+*.egg
+.pytest_cache/
 
-# Node.js
+# ─── Node.js / Next.js ───────────────────────────────────────────────────────
 frontend/node_modules/
 frontend/.next/
 frontend/out/
 frontend/build/
+frontend/.env
+frontend/.env.local
 frontend/.env*.local
+frontend/.vercel
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
+frontend/.pnpm-debug.log*
 
-# IDEs & OS
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+*.log.*
+
+# ─── IDEs & OS ────────────────────────────────────────────────────────────────
 .vscode/
 .idea/
+*.swp
+*.swo
 .DS_Store
 Thumbs.db
+desktop.ini
