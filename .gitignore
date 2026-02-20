@@ -5,7 +5,7 @@ data/output/*
 !data/output/.gitkeep
 detection_output.json
 transactions_graph.json
-transactions.csv
+!data/transactions.csv
 
 # ─── Python ───────────────────────────────────────────────────────────────────
 __pycache__/

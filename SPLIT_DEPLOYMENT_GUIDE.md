@@ -25,7 +25,7 @@ Render is excellent for hosting FastAPI applications.
 ### 3. Configure the Service
 - **Name**: `fingraphix-backend` (or similar)
 - **Region**: Select the one closest to you.
-- **Language**: `Python 3`
+- **Language/Environment**: Select **Python 3** (⚠️ DO NOT select Node)
 - **Root Directory**: `backend`
 - **Build Command**: `pip install --upgrade pip && pip install -r requirements.txt`
 - **Start Command**: `python -m uvicorn app:app --host 0.0.0.0 --port $PORT`
@@ -82,13 +82,24 @@ Vercel is the natural home for Next.js apps.
 
 ## Troubleshooting
 
-### 1. Vercel: Lockfile Mismatches
-We have removed `pnpm-lock.yaml` to ensure Vercel defaults to **`npm`**. 
+### 1. Vercel: `ERR_PNPM_OUTDATED_LOCKFILE`
+If Vercel fails with a lockfile error (e.g., "pnpm-lock.yaml is not up to date"), it's because dependencies were added (like `d3`) but the lockfile wasn't updated.
 
-If you still see a lockfile error:
-- Ensure you have **deleted** `pnpm-lock.yaml` from your repository.
-- Vercel will then automatically use `npm install` and your `package-lock.json`.
-- In Vercel **Build & Development Settings**, you can explicitly set the **Install Command** to `npm install` if needed.
+**Fix Option A (Preferred)**: 
+In your Vercel Dashboard, go to **Settings** > **General** > **Build & Development Settings**.
+- Override the **Install Command** to: `pnpm install --no-frozen-lockfile`
+
+**Fix Option B**: 
+If you have multiple lockfiles (e.g., both `pnpm-lock.yaml` and `package-lock.json`), delete the one you aren't using. Vercel prefers `pnpm` if it sees the `.yaml` file.
 
 ### 2. Render: Build Errors (Maturin/Rust)
-Ensure `PYTHON_VERSION` is set to `3.11.6`. This forces Render to use pre-built packages (wheels) so it doesn't try to compile things from scratch using Rust.
+Ensure `PYTHON_VERSION` is set to `3.11.6` in Environment Variables. This forces Render to use pre-built packages (wheels) so it doesn't try to compile `pydantic-core` from scratch using Rust.
+
+### 3. Render: `package.lock` / `package.json` missing
+If you see an error about `package.json` or `package.lock` missing on Render, it means Render thinks your backend is a Node.js app.
+
+**Fix**:
+1. Go to **Settings** in the Render dashboard.
+2. Find the **Environment** or **Language** setting.
+3. Change it to **Python 3**.
+4. Double check your **Build Command** and **Start Command** match the guide above.

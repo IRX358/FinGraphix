@@ -168,7 +168,8 @@ async def download_results(result_id: str):
 @app.post("/api/analyze/sample")
 async def analyze_sample():
     """Run engine on the built-in sample dataset."""
-    sample_csv = DATA_DIR / "transactions.csv"
+    # Look for sample in the repo itself, not the temp data dir
+    sample_csv = PROJECT_ROOT / "data" / "transactions.csv"
     if not sample_csv.exists():
         raise HTTPException(status_code=404, detail="Sample dataset not found")
 
