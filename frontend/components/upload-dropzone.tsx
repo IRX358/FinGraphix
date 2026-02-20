@@ -8,20 +8,20 @@ import { Upload, FileSpreadsheet, AlertCircle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { saveDatasetToLocalStorage } from "@/lib/local-storage"
 
 const MAX_SIZE_MB = 20
-const MAX_ROWS = 50000
 
 export function UploadDropzone() {
   const router = useRouter()
   const [isDragging, setIsDragging] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [uploadProgress, setUploadProgress] = useState("")
 
   const handleFile = useCallback(async (file: File) => {
     setError(null)
     setIsUploading(true)
+    setUploadProgress("Uploading CSV...")
 
     try {
       // Validate file
@@ -33,32 +33,33 @@ export function UploadDropzone() {
         throw new Error(`File size exceeds ${MAX_SIZE_MB}MB limit`)
       }
 
-      // Upload file
+      // Upload file to FastAPI backend
       const formData = new FormData()
       formData.append("file", file)
 
-      const response = await fetch("/api/dataset/upload", {
+      setUploadProgress("Analyzing transactions...")
+
+      const response = await fetch("/api/analyze", {
         method: "POST",
         body: formData,
       })
 
       if (!response.ok) {
-        const data = await response.json()
-        throw new Error(data.error || "Failed to upload file")
+        const data = await response.json().catch(() => ({ detail: "Analysis failed" }))
+        throw new Error(data.detail || data.error || "Failed to analyze file")
       }
 
       const data = await response.json()
       
-      // Save to localStorage for persistence
-      if (data.storedDataset) {
-        saveDatasetToLocalStorage(data.storedDataset)
-      }
-      
-      router.push(`/processing?datasetId=${data.datasetId}`)
+      setUploadProgress("Loading dashboard...")
+
+      // Redirect to the dashboard with the result ID
+      router.push(`/dashboard?resultId=${data.result_id}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed")
     } finally {
       setIsUploading(false)
+      setUploadProgress("")
     }
   }, [router])
 
@@ -118,7 +119,7 @@ export function UploadDropzone() {
           {isUploading ? (
             <>
               <div className="h-12 w-12 animate-spin rounded-full border-4 border-muted border-t-primary" />
-              <p className="text-muted-foreground">Processing your file...</p>
+              <p className="text-muted-foreground">{uploadProgress || "Processing your file..."}</p>
             </>
           ) : (
             <>
@@ -138,10 +139,10 @@ export function UploadDropzone() {
 
               <div className="text-center">
                 <p className="text-lg font-medium" style={{ color: "rgba(255,255,255,0.85)" }}>
-                  {isDragging ? "Drop your CSV file here" : "Upload your CSV file"}
+                  {isDragging ? "Drop your CSV file here" : "Upload Transaction CSV"}
                 </p>
                 <p className="mt-1 text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>
-                  Drag and drop or click to browse
+                  Required: transaction_id, sender_id, receiver_id, amount, timestamp
                 </p>
               </div>
 
@@ -166,7 +167,7 @@ export function UploadDropzone() {
                 </label>
 
                 <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  Max {MAX_SIZE_MB}MB, up to {MAX_ROWS.toLocaleString()} rows
+                  Max {MAX_SIZE_MB}MB · CSV format only
                 </p>
               </div>
             </>

@@ -25,6 +25,8 @@ dist/
 .eggs/
 *.egg
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # ─── Node.js / Next.js ───────────────────────────────────────────────────────
 frontend/node_modules/
@@ -41,6 +43,7 @@ frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
 frontend/.pnpm-debug.log*
+frontend/package-lock.json
 
 # ─── Logs ─────────────────────────────────────────────────────────────────────
 *.log
@@ -55,3 +58,9 @@ logs/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ─── Misc ─────────────────────────────────────────────────────────────────────
+*.tmp
+*.bak
+*.orig
+.agent/

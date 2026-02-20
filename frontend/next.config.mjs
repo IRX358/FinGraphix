@@ -9,6 +9,31 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async rewrites() {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'
+    return [
+      {
+        source: '/api/analyze',
+        destination: `${backendUrl}/api/analyze`,
+      },
+      {
+        source: '/api/analyze/sample',
+        destination: `${backendUrl}/api/analyze/sample`,
+      },
+      {
+        source: '/api/results/:path*',
+        destination: `${backendUrl}/api/results/:path*`,
+      },
+      {
+        source: '/api/download/:path*',
+        destination: `${backendUrl}/api/download/:path*`,
+      },
+      {
+        source: '/api/health',
+        destination: `${backendUrl}/api/health`,
+      },
+    ]
+  },
 }
 
 export default nextConfig

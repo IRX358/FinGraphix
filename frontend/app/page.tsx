@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { UploadDropzone } from "@/components/upload-dropzone"
 import { Button } from "@/components/ui/button"
-import { saveDatasetToLocalStorage } from "@/lib/local-storage"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 /* ---- Parallax hook ---- */
@@ -41,15 +40,11 @@ export default function UploadPage() {
   const handleLoadSample = async () => {
     setIsLoadingSample(true)
     try {
-      const res = await fetch("/api/dataset/sample", { method: "POST" })
+      const res = await fetch("/api/analyze/sample", { method: "POST" })
       if (!res.ok) throw new Error("Failed to load sample")
       const data = await res.json()
 
-      if (data.storedDataset) {
-        saveDatasetToLocalStorage(data.storedDataset)
-      }
-
-      router.push(`/processing?datasetId=${data.datasetId}`)
+      router.push(`/dashboard?resultId=${data.result_id}`)
     } catch (error) {
       console.error("Failed to load sample dataset:", error)
     } finally {
@@ -140,7 +135,7 @@ export default function UploadPage() {
                 Financial Forensic Engine
               </h1>
               <p className="text-lg text-pretty" style={{ color: "rgba(255,255,255,0.55)" }}>
-                Upload financial data for instant forensic insights and guided exploration
+                EXposing hidden money mule networks
               </p>
             </div>
 
@@ -166,12 +161,14 @@ export default function UploadPage() {
                 {isLoadingSample ? (
                   <>
                     <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground" />
-                    Generating...
+                    Running Sample Analysis...
                   </>
                 ) : (
-                  "Generate Analysis"
+                  "Run Sample Analysis"
                 )}
               </Button>
+              <p className="mt-2 text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
+              </p>
             </div>
 
           </div>
