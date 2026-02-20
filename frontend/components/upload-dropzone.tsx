@@ -8,10 +8,10 @@ import { Upload, FileSpreadsheet, AlertCircle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { saveDatasetToLocalStorage } from "@/lib/local-storage"
 
 const MAX_SIZE_MB = 20
-
-import { API_BASE } from "@/lib/config"
+const MAX_ROWS = 50000
 
 export function UploadDropzone() {
   const router = useRouter()
@@ -33,28 +33,28 @@ export function UploadDropzone() {
         throw new Error(`File size exceeds ${MAX_SIZE_MB}MB limit`)
       }
 
-      // Upload file to FastAPI backend
+      // Upload file
       const formData = new FormData()
       formData.append("file", file)
 
-      const response = await fetch(`${API_BASE}/api/analyze`, {
+      const response = await fetch("/api/dataset/upload", {
         method: "POST",
         body: formData,
       })
 
       if (!response.ok) {
         const data = await response.json()
-        throw new Error(data.detail || "Failed to upload file")
+        throw new Error(data.error || "Failed to upload file")
       }
 
       const data = await response.json()
       
-      // Store result_id in localStorage for persistence
-      if (typeof window !== "undefined") {
-        localStorage.setItem("fingraphix_result_id", data.result_id)
+      // Save to localStorage for persistence
+      if (data.storedDataset) {
+        saveDatasetToLocalStorage(data.storedDataset)
       }
       
-      router.push(`/processing?resultId=${data.result_id}`)
+      router.push(`/processing?datasetId=${data.datasetId}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed")
     } finally {
@@ -118,7 +118,7 @@ export function UploadDropzone() {
           {isUploading ? (
             <>
               <div className="h-12 w-12 animate-spin rounded-full border-4 border-muted border-t-primary" />
-              <p className="text-muted-foreground">Analyzing financial data...</p>
+              <p className="text-muted-foreground">Processing your file...</p>
             </>
           ) : (
             <>
@@ -166,7 +166,7 @@ export function UploadDropzone() {
                 </label>
 
                 <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  Max {MAX_SIZE_MB}MB · CSV format required
+                  Max {MAX_SIZE_MB}MB, up to {MAX_ROWS.toLocaleString()} rows
                 </p>
               </div>
             </>

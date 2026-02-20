@@ -8,7 +8,8 @@ import { cn } from "@/lib/utils"
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "Results", href: "/results" },
+  { label: "Overview", href: "/explore" },
+  { label: "History", href: "/history" },
 ]
 
 const SCROLL_THRESHOLD = 12
@@ -84,7 +85,7 @@ export function Navbar() {
         visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
       )}
     >
-      <div className="mx-auto max-w-6xl px-4 pt-4">
+      <div className="mx-auto max-w-5xl px-4 pt-4">
         <div
           className={cn(
             "flex items-center justify-between rounded-2xl px-5 py-3",
@@ -99,7 +100,7 @@ export function Navbar() {
         >
           {/* Logo + Title */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-[38px] w-[38px] max-h-[42px] overflow-hidden rounded-full">
+            <div className="relative h-[38px] w-[38px] max-h-[42px] overflow-hidden rounded-lg">
               <Image
                 src="/fingraphix-logo.jpg"
                 alt="FinGraphix logo"

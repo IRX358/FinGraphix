@@ -4,9 +4,8 @@ import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { UploadDropzone } from "@/components/upload-dropzone"
 import { Button } from "@/components/ui/button"
+import { saveDatasetToLocalStorage } from "@/lib/local-storage"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-
-import { API_BASE } from "@/lib/config"
 
 /* ---- Parallax hook ---- */
 function useParallax(speed: number) {
@@ -42,15 +41,15 @@ export default function UploadPage() {
   const handleLoadSample = async () => {
     setIsLoadingSample(true)
     try {
-      const res = await fetch(`${API_BASE}/api/analyze/sample`, { method: "POST" })
+      const res = await fetch("/api/dataset/sample", { method: "POST" })
       if (!res.ok) throw new Error("Failed to load sample")
       const data = await res.json()
 
-      if (typeof window !== "undefined") {
-        localStorage.setItem("fingraphix_result_id", data.result_id)
+      if (data.storedDataset) {
+        saveDatasetToLocalStorage(data.storedDataset)
       }
 
-      router.push(`/processing?resultId=${data.result_id}`)
+      router.push(`/processing?datasetId=${data.datasetId}`)
     } catch (error) {
       console.error("Failed to load sample dataset:", error)
     } finally {
@@ -141,7 +140,7 @@ export default function UploadPage() {
                 Financial Forensic Engine
               </h1>
               <p className="text-lg text-pretty" style={{ color: "rgba(255,255,255,0.55)" }}>
-                Exposing hidden money mule networks
+                Upload financial data for instant forensic insights and guided exploration
               </p>
             </div>
 
@@ -167,7 +166,7 @@ export default function UploadPage() {
                 {isLoadingSample ? (
                   <>
                     <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground" />
-                    Analyzing...
+                    Generating...
                   </>
                 ) : (
                   "Generate Analysis"
