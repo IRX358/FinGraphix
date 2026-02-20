@@ -49,6 +49,10 @@ The application will be available at [http://localhost:3000](http://localhost:30
 - `frontend/`: Next.js web application.
 - `data/`: Sample datasets and storage for uploads/outputs.
 
+## 🚀 Deployment
+
+For a detailed, step-by-step guide on deploying the backend to Render and the frontend to Vercel, see **[SPLIT_DEPLOYMENT_GUIDE.md](SPLIT_DEPLOYMENT_GUIDE.md)**.
+
 ## 📝 Architecture
 
 For a deep dive into the detection logic and system design, see [MULE_DETECTION_ARCHITECTURE.md](MULE_DETECTION_ARCHITECTURE.md).
