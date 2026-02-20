@@ -8,6 +8,7 @@ import { Upload, FileSpreadsheet, AlertCircle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { getBackendUrl } from "@/lib/api"
 
 const MAX_SIZE_MB = 20
 
@@ -39,7 +40,7 @@ export function UploadDropzone() {
 
       setUploadProgress("Analyzing transactions...")
 
-      const response = await fetch("/api/analyze", {
+      const response = await fetch(getBackendUrl("/api/analyze"), {
         method: "POST",
         body: formData,
       })

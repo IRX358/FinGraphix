@@ -26,13 +26,16 @@ from engine.togh import csv_to_graph, save_graph_json
 
 app = FastAPI(title="FinGraphix API", version="1.0.0")
 
-# CORS — allow Next.js dev server
+# CORS — allow Next.js dev server + Vercel deployments
 # CORS configuration
-allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
+allowed_origins = os.getenv(
+    "ALLOWED_ORIGINS",
+    "http://localhost:3000,http://127.0.0.1:3000"
+).split(",")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=["*"],   # Allow all origins (Vercel preview URLs change per deploy)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

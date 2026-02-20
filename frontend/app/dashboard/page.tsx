@@ -7,6 +7,7 @@ import Link from "next/link"
 import { AlertCircle, Download, Shield, Users, Activity, Clock, ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinancialLoading } from "@/components/financial-loading"
+import { getBackendUrl } from "@/lib/api"
 
 // Dynamically import GraphVisualizer (uses d3, no SSR)
 const GraphVisualizer = dynamic(
@@ -66,7 +67,7 @@ function DashboardContent() {
       setLoading(true)
       setError(null)
       try {
-        const res = await fetch(`/api/results/${resultId}`)
+        const res = await fetch(getBackendUrl(`/api/results/${resultId}`))
         if (!res.ok) {
           if (res.status === 404) throw new Error("Analysis result not found. Please run a new analysis.")
           throw new Error("Failed to fetch results")
@@ -87,7 +88,7 @@ function DashboardContent() {
     if (!resultId) return
 
     try {
-      const res = await fetch(`/api/download/${resultId}`)
+      const res = await fetch(getBackendUrl(`/api/download/${resultId}`))
       if (!res.ok) throw new Error("Download failed")
 
       const blob = await res.blob()

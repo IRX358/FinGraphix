@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { UploadDropzone } from "@/components/upload-dropzone"
 import { Button } from "@/components/ui/button"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { getBackendUrl } from "@/lib/api"
 
 /* ---- Parallax hook ---- */
 function useParallax(speed: number) {
@@ -40,7 +41,7 @@ export default function UploadPage() {
   const handleLoadSample = async () => {
     setIsLoadingSample(true)
     try {
-      const res = await fetch("/api/analyze/sample", { method: "POST" })
+      const res = await fetch(getBackendUrl("/api/analyze/sample"), { method: "POST" })
       if (!res.ok) throw new Error("Failed to load sample")
       const data = await res.json()
 
