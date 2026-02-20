@@ -26,16 +26,16 @@ Render is excellent for hosting FastAPI applications.
 - **Name**: `fingraphix-backend` (or similar)
 - **Region**: Select the one closest to you.
 - **Language**: `Python 3`
-- **Root Directory**: `backend`
-- **Build Command**: `pip install -r ../requirements.txt`
-- **Start Command**: `python -m uvicorn app:app --host 0.0.0.0 --port $PORT`
+- **Root Directory**: (Leave this empty)
+- **Build Command**: `pip install --upgrade pip && pip install -r requirements.txt`
+- **Start Command**: `python -m uvicorn backend.app:app --host 0.0.0.0 --port $PORT`
 - **Instance Type**: Select the "Free" tier.
 
 ### 4. Set Environment Variables
 - Click **Advanced** -> **Add Environment Variable**:
   - `PYTHON_VERSION`: `3.11.6`
-  - `RENDER`: `true` (This triggers the engine to use `/tmp` for its storage "cache")
-  - `ALLOWED_ORIGINS`: Set this to your Vercel URL (e.g., `https://fingraphix.vercel.app`).
+  - `RENDER`: `true`
+  - `ALLOWED_ORIGINS`: Set this to your Vercel URL.
 
 ### 5. Final Checks
 - **Health Check**: Visit your Render URL + `/api/health`. It should return `{"status": "healthy", ...}`.
