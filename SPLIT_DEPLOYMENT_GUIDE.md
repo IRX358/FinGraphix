@@ -26,9 +26,9 @@ Render is excellent for hosting FastAPI applications.
 - **Name**: `fingraphix-backend` (or similar)
 - **Region**: Select the one closest to you.
 - **Language**: `Python 3`
-- **Root Directory**: (Leave this empty)
+- **Root Directory**: `backend`
 - **Build Command**: `pip install --upgrade pip && pip install -r requirements.txt`
-- **Start Command**: `python -m uvicorn backend.app:app --host 0.0.0.0 --port $PORT`
+- **Start Command**: `python -m uvicorn app:app --host 0.0.0.0 --port $PORT`
 - **Instance Type**: Select the "Free" tier.
 
 ### 4. Set Environment Variables
