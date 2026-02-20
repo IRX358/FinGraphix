@@ -161,10 +161,10 @@ export default function UploadPage() {
                 {isLoadingSample ? (
                   <>
                     <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground" />
-                    Running Sample Analysis...
+                    Running Analysis...
                   </>
                 ) : (
-                  "Run Sample Analysis"
+                  "Run Analysis"
                 )}
               </Button>
               <p className="mt-2 text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>

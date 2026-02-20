@@ -55,6 +55,23 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 # In-memory result cache (result_id -> output dict)
 result_cache: dict[str, dict] = {}
 
+# Find sample CSV — check multiple possible locations
+def _find_sample_csv() -> Path | None:
+    candidates = [
+        PROJECT_ROOT / "data" / "transactions.csv",         # local dev
+        Path(__file__).resolve().parent / "data" / "transactions.csv",  # copied into backend/
+        Path("/opt/render/project/src/data/transactions.csv"),  # Render full clone
+    ]
+    for p in candidates:
+        if p.exists():
+            return p
+    return None
+
+SAMPLE_CSV = _find_sample_csv()
+print(f"[FinGraphix] PROJECT_ROOT = {PROJECT_ROOT}")
+print(f"[FinGraphix] DATA_DIR     = {DATA_DIR}")
+print(f"[FinGraphix] SAMPLE_CSV   = {SAMPLE_CSV}")
+
 
 @app.get("/api/health")
 async def health():
@@ -168,17 +185,15 @@ async def download_results(result_id: str):
 @app.post("/api/analyze/sample")
 async def analyze_sample():
     """Run engine on the built-in sample dataset."""
-    # Look for sample in the repo itself, not the temp data dir
-    sample_csv = PROJECT_ROOT / "data" / "transactions.csv"
-    if not sample_csv.exists():
-        raise HTTPException(status_code=404, detail="Sample dataset not found")
+    if not SAMPLE_CSV:
+        raise HTTPException(status_code=404, detail="Sample dataset not found. Ensure data/transactions.csv is deployed.")
 
     result_id = f"sample_{str(uuid.uuid4())[:6]}"
 
     try:
         # CSV → Graph
         graph_json_path = UPLOAD_DIR / f"{result_id}_graph.json"
-        G = csv_to_graph(str(sample_csv))
+        G = csv_to_graph(str(SAMPLE_CSV))
         save_graph_json(G, str(graph_json_path))
 
         # Load and run engine
