@@ -4,7 +4,7 @@
 
 A web-based **Financial Forensics Engine** that processes transaction data and exposes money muling networks through **graph analysis and interactive visualization**.
 
-🔗 **Live Demo**: _[Add your URL here]_
+🔗 **Live Demo**: _[https://fin-graphix-79n1-5rw82uddx-irfan-irs-projects.vercel.app/]_
 
 ---
 
@@ -133,17 +133,6 @@ npm run dev
 
 The frontend runs on `http://localhost:3000` and proxies API requests to the backend on port 8000.
 
-### Environment Variables
-
-**Frontend** (`frontend/.env.local`):
-```
-NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
-```
-
-**Backend** (optional):
-```
-ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
-```
 
 ## 📖 Usage Instructions
 
@@ -198,10 +187,3 @@ FinGraphix/
 4. **False positive tuning**: Payroll and merchant suppression heuristics may need adjustment for specific datasets.
 5. **Cycle enumeration**: Johnson's algorithm is exponential in the worst case; cycles capped at length 5.
 
-## 👥 Team Members
-
-- _[Add your team members here]_
-
----
-
-**Good luck! Follow the money.** 💰🔍
