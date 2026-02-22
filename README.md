@@ -1,6 +1,12 @@
 # FinGraphix — Money Muling Detection Engine
 
+![FinGraphix Logo](frontend/public/fingraphix-logo.jpg)
+
+
+
 > **RIFT 2026 Hackathon** | Graph Theory / Financial Crime Detection Track
+
+
 
 A web-based **Financial Forensics Engine** that processes transaction data and exposes money muling networks through **graph analysis and interactive visualization**.
 
@@ -187,3 +193,4 @@ FinGraphix/
 4. **False positive tuning**: Payroll and merchant suppression heuristics may need adjustment for specific datasets.
 5. **Cycle enumeration**: Johnson's algorithm is exponential in the worst case; cycles capped at length 5.
 
+•Built for Hackathon but still with CURIOSITY ~ iR
